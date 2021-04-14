@@ -39,16 +39,7 @@ function App() {
 
       <div className={classes.MainContainer}>
         <div className={classes.ProdactPreview}>
-          <img src="https://imgur.com/iOeUBV7.png" alt="Product Preview" />
-
-          {/* <div className={classes.TimeSection}>
-            <p>{`${currentHour} : ${currentMinute}`}</p>
-          </div> */}
-
-          <div className={classes.HeartBeatSection}>
-            <i class="fas fa-heartbeat"></i>
-            <p>78</p>
-          </div>
+          
         </div>
 
         <div className={classes.ProductDate}>

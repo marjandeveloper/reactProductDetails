@@ -9,20 +9,32 @@ import ProductData from './Utils/ProductData';
 class App extends Component {
   state = {
     ProductData: ProductData,
-    currentPeviewImage: "https://imgur.com/iOeUBV7.png",
-    showHeartBeatSection: true
+    
+    currentPeviewImagePos: 0,
+    currentSelectedFeature: 0
+  }
+
+  onColorOptionClick = (pos) => {
+    this.setState({ currentPeviewImagePos: pos});
+  }
+
+  onFeatureItemClick = (pos) => {
+    this.setState({currentSelectedFeature: pos})
   }
 
   render(){
+
     return (
+      
+
       <div className="App">
         
         <Topbar />
   
         <main className={classes.MainContainer}>
-          <ProductPreview currentPeviewImage={this.state.currentPeviewImage} showHeartBeatSection={this.state.showHeartBeatSection} />
+          <ProductPreview currentPeviewImage={this.state.ProductData.colorOptions[this.state.currentPeviewImagePos].imageUrl} currentSelectedFeature={this.state.currentSelectedFeature}  />
   
-          <ProductDetails data={ProductData} />
+          <ProductDetails data={ProductData} onColorOptionClick={this.onColorOptionClick} currentPeviewImagePos={this.state.currentPeviewImagePos} onFeatureItemClick={this.onFeatureItemClick} currentSelectedFeature={this.state.currentSelectedFeature} />
         </main>
       </div>
     );  

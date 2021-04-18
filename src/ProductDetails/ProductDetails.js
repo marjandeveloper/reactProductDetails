@@ -5,24 +5,24 @@ const ProductDetails = (props) => {
     const colorOptions = props.data.colorOptions.map((item, pos) => {
       const classArr = [classes.ProductImage];
       
-      if(pos === 0) {
+      if(pos === props.currentPeviewImagePos) {
         classArr.push(classes.SelectedProductImage);
       }
       
       return (
-        <img className={classArr.join(' ')} src={item.imageUrl} alt={item.styleName} key={pos} />
+        <img className={classArr.join(' ')} src={item.imageUrl} alt={item.styleName} key={pos}  onClick={() => props.onColorOptionClick(pos)}/>
       );
     });
 
     const featureList = props.data.featureList.map((item, pos) => {
       const classArr = [classes.FeatureItem];
       
-      if(pos === 0) {
+      if(pos === props.currentSelectedFeature) {
         classArr.push(classes.SelectedFeatureItem);
       }
 
       return (
-        <button className={classArr.join(' ')} key={pos}>{item}</button>
+        <button onClick={() => props.onFeatureItemClick(pos)} className={classArr.join(' ')} key={pos}>{item}</button>
       );
     });
 
